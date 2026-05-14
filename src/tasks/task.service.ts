@@ -36,7 +36,11 @@ export class TaskService {
 
   async findAll(): Promise<Task[]> {
     const snap = await this.collection.get();
-    return snap.docs.map((d) => ({ id: d.id, ...(d.data() as Task) }));
+    const tasks = snap.docs.map((d) => ({ id: d.id, ...(d.data() as Task) }));
+    return tasks.sort(
+      (a, b) =>
+        new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+    );
   }
 
   async updateStatus(id: string, status: TaskStatus): Promise<Task> {
