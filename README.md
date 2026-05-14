@@ -1,98 +1,218 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# GOV.UK Challenge - Backend API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This backend has been created with NestJS as part of the dts-developer-challenge. It implements backend system for the full CRUD of tasks as requested, as well as Firebase authentication and API documentation with Swagger.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Unit tests are implemented and passing, but not fully covered.
 
-## Description
+### Important Links
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+-   [Frontend Repository](https://github.com/lewis1190/hmcts-dev-test-frontend-nextjs)
+-   [DTS Developer Challenge Brief](https://github.com/hmcts/dts-developer-challenge)
+-   [API Documentation](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/api)
 
-## Project setup
+### AI Clause
 
-```bash
-$ npm install
+Due to the time constraints on this project, AI tools were used to increase efficiency when:
+
+-   Debugging and Scaffolding boilerplate code
+-   Code reviews for best practices and optimization
+
+Predictive text was also used to speed up boilerplate generation.
+
+### Hosted Links via Heroku
+
+-   [Frontend](https://gov-challenge-frontend-8729b9eaca16.herokuapp.com/)
+-   [Backend](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/)
+-   [Backend API Documentation](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/api)
+
+### What I would do with more time
+
+With additional time, I would:
+
+-   Add more granular error handling with custom exception filters
+-   Implement request logging and monitoring for production observability
+-   Expand test coverage to reach 100% (unit, integration, and e2e tests)
+-   Implement rate limiting and security headers
+
+## Features
+
+-   **RESTful Task API**: Full CRUD operations for task management
+-   **Firebase Authentication**: Secure token-based authentication with ID token validation
+-   **API Documentation**: Interactive Swagger API docs at `/api`
+-   **Validation**: Request validation with error handling
+-   **Testing**: Comprehensive unit testing
+-   **CORS Support**: Configurable CORS for multiple frontend origins
+-   **Health Checks**: API health monitoring endpoint
+-   **Error Handling**: Consistent error response format
+
+## Tech Stack
+
+-   **Framework**: NestJS 11.0.1
+-   **Runtime**: Node.js 22.17.0
+-   **Authentication**: Firebase Admin SDK 12.3.0
+-   **Testing**: Jest
+-   **Documentation**: Swagger
+
+## Project Structure
+
+```
+gov_challenge_backend/
+├── src/
+│   ├── main.ts                  # Application entry point
+│   ├── app.module.ts            # Root module
+│   ├── app.controller.ts        # Root controller (health check)
+│   ├── app.service.ts           # Root service
+│   ├── auth/
+│   │   ├── auth.module.ts       # Authentication module
+│   │   ├── auth.service.ts      # Firebase token validation
+│   │   └── firebase.guard.ts    # Firebase JWT guard
+│   ├── firebase/
+│   │   ├── firebase.module.ts   # Firebase configuration
+│   │   └── firebase.service.ts  # Firebase admin initialization
+│   └── tasks/
+│       ├── tasks.module.ts      # Tasks module
+│       ├── tasks.controller.ts  # Task endpoints
+│       ├── tasks.service.ts     # Task business logic
+│       ├── dto/
+│       │   ├── create-task.dto.ts
+│       │   └── update-task.dto.ts
+│       └── entities/
+│           └── task.entity.ts   # Task data model
+├── test/
+│   ├── app.e2e-spec.ts          # End-to-end tests
+│   └── jest-e2e.json            # E2E Jest configuration
+├── .env                         # Environment variables
+├── package.json
+├── tsconfig.json
+├── nest-cli.json
+└── Procfile                     # Heroku deployment config
 ```
 
-## Compile and run the project
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+-   Node.js 22.17.0 or later
+-   npm 10.9.2 or later
+-   A Firebase project with Admin SDK credentials
+-   The frontend application running locally or deployed
+
+### Installation
+
+1. **Clone the repository** and navigate to the project directory:
+
+   ```bash
+   cd gov_challenge_backend
+   ```
+
+2. **Set up environment variables**:
+
+   Update `.env` with your configuration:
+
+   ```env
+   # Server Configuration
+   PORT=3001
+   NODE_ENV=development
+
+   # Firebase Configuration (Admin SDK)
+   GOOGLE_APPLICATION_CREDENTIALS=./firebase-service-account.json
+
+   # CORS Configuration
+   CORS_ORIGIN=http://localhost:3000
+   ```
+
+3. **Set up Firebase credentials**:
+
+   -   Download your Firebase service account JSON from Firebase Console
+   -   Save it as `firebase-service-account.json` in the project root
+
+4. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server with auto-reload:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run start:dev
 ```
 
-## Run tests
+The API will be available at `http://localhost:3001`
+
+**API Documentation**: Visit `http://localhost:3001/api` for interactive Swagger docs
+
+**Health Check**: `GET http://localhost:3001/health`
+
+### Building for Production
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run build
+npm run start:prod
 ```
 
-## Deployment
+The compiled application will run from the `dist/` directory.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Testing
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Run All Tests
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run test
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Run Tests in Watch Mode
 
-## Resources
+```bash
+npm run test:watch
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Run Test Coverage Report
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run test:cov
+```
 
-## Support
+### Run E2E Tests
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npm run test:e2e
+```
 
-## Stay in touch
+### Key Endpoints
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Tasks
 
-## License
+```
+GET    /tasks                          # List all tasks
+GET    /tasks/:id                      # Get task by ID
+POST   /tasks                          # Create a new task
+PATCH  /tasks/:id                      # Update task details
+PATCH  /tasks/:id/status              # Update task status
+DELETE /tasks/:id                      # Delete a task
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+All task endpoints require Firebase authentication (Bearer token in Authorization header).
+
+## Key Implementation Details
+
+### Firebase Authentication
+
+Authentication is handled via Firebase Admin SDK:
+
+-   Clients send Firebase ID tokens in the `Authorization: Bearer <token>` header
+-   The `FirebaseGuard` middleware validates tokens on protected routes
+-   User identification is extracted from the token for audit trails
+
+### Task Management
+
+Tasks are stored in memory (for demonstration) with:
+
+-   CRUD operations via the `TasksService`
+-   Status tracking (NOT_STARTED, IN_PROGRESS, COMPLETE)
+-   Timestamp tracking (createdAt, updatedAt)
+-   Unique ID generation per task
