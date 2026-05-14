@@ -22,6 +22,8 @@ async function bootstrap() {
     credentials: true,
   });
 
+  console.log(`CORS enabled for origin: ${process.env.CORS_ORIGIN || 'http://localhost:3000'}`);
+
   // Swagger Setup
   const swaggerConfig = new DocumentBuilder()
     .setTitle('HMCTS Dev Test Challenge API')
