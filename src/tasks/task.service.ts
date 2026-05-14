@@ -49,6 +49,17 @@ export class TaskService {
     return { id: updated.id, ...(updated.data() as Task) };
   }
 
+  async update(id: string, updateData: any): Promise<Task> {
+    const docRef = this.collection.doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) throw new NotFoundException('Task not found');
+    const updatedAt = new Date().toISOString();
+    const dataToUpdate = { ...updateData, updatedAt };
+    await docRef.update(dataToUpdate);
+    const updated = await docRef.get();
+    return { id: updated.id, ...(updated.data() as Task) };
+  }
+
   async delete(id: string): Promise<void> {
     const docRef = this.collection.doc(id);
     const doc = await docRef.get();

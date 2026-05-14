@@ -1,15 +1,15 @@
-import { IsNotEmpty, IsOptional, IsString, IsISO8601, IsEnum } from 'class-validator';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsOptional, IsString, IsISO8601, IsEnum } from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { TaskStatus } from '../enums/task-status.enum';
 
-export class CreateTaskDto {
-  @ApiProperty({
+export class UpdateTaskDto {
+  @ApiPropertyOptional({
     description: 'The title of the task',
     example: 'Complete project documentation',
   })
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  title: string;
+  title?: string;
 
   @ApiPropertyOptional({
     description: 'A detailed description of the task',
@@ -19,20 +19,20 @@ export class CreateTaskDto {
   @IsString()
   description?: string;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'The current status of the task',
     enum: TaskStatus,
-    example: TaskStatus.NotStarted,
+    example: TaskStatus.InProgress,
   })
-  @IsNotEmpty()
+  @IsOptional()
   @IsEnum(TaskStatus)
-  status: TaskStatus;
+  status?: TaskStatus;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'The due date for the task in ISO 8601 format',
     example: '2026-06-30T23:59:59Z',
   })
-  @IsNotEmpty()
+  @IsOptional()
   @IsISO8601()
-  dueDate: string;
+  dueDate?: string;
 }
