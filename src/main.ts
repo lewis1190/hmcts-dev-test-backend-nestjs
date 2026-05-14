@@ -7,7 +7,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Pipes Setup
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: false,
+      transformOptions: {
+        exposeUnsetFields: false
+      }
+    })
+  );
 
   // CORS Setup
   app.enableCors({
