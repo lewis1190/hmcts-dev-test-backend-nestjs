@@ -4,47 +4,6 @@ This backend has been created with NestJS as part of the dts-developer-challenge
 
 Unit tests are implemented and passing, but not fully covered.
 
-### Important Links
-
--   [Frontend Repository](https://github.com/lewis1190/hmcts-dev-test-frontend-nextjs)
--   [DTS Developer Challenge Brief](https://github.com/hmcts/dts-developer-challenge)
--   [API Documentation](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/api)
-
-### AI Clause
-
-Due to the time constraints on this project, AI tools were used to increase efficiency when:
-
--   Debugging and Scaffolding boilerplate code
--   Code reviews for best practices and optimization
-
-Predictive text was also used to speed up boilerplate generation.
-
-### Hosted Links via Heroku
-
--   [Frontend](https://gov-challenge-frontend-8729b9eaca16.herokuapp.com/)
--   [Backend](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/)
--   [Backend API Documentation](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/api)
-
-### What I would do with more time
-
-With additional time, I would:
-
--   Add more granular error handling with custom exception filters
--   Implement request logging and monitoring for production observability
--   Expand test coverage to reach 100% (unit, integration, and e2e tests)
--   Implement rate limiting and security headers
-
-## Features
-
--   **RESTful Task API**: Full CRUD operations for task management
--   **Firebase Authentication**: Secure token-based authentication with ID token validation
--   **API Documentation**: Interactive Swagger API docs at `/api`
--   **Validation**: Request validation with error handling
--   **Testing**: Comprehensive unit testing
--   **CORS Support**: Configurable CORS for multiple frontend origins
--   **Health Checks**: API health monitoring endpoint
--   **Error Handling**: Consistent error response format
-
 ## Tech Stack
 
 -   **Framework**: NestJS 11.0.1
@@ -53,7 +12,43 @@ With additional time, I would:
 -   **Testing**: Jest
 -   **Documentation**: Swagger
 
+## Important Links
+
+### Github Repositories
+
+-   [Frontend Repository](https://github.com/lewis1190/hmcts-dev-test-frontend-nextjs)
+-   [DTS Developer Challenge Brief](https://github.com/hmcts/dts-developer-challenge)
+
+### Hosted Links via Heroku
+
+-   [Frontend](https://gov-challenge-frontend-8729b9eaca16.herokuapp.com/)
+-   [Backend](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/)
+-   [Backend API Documentation](https://gov-challenge-backend-0b9a806832f0.herokuapp.com/api)
+
+### AI Clause
+
+AI tools were used to increase efficiency when:
+
+-   Debugging and Scaffolding boilerplate code
+-   Code reviews for best practices and optimization
+-   Predictive text was also for boilerplate generation.
+
+## Features
+
+-   **RESTful Task API**: Full CRUD operations for task management
+-   **Firebase Authentication**: Secure token-based authentication with ID token validation
+-   **API Documentation**: Interactive Swagger API docs at `/api`
+-   **Validation**: Request validation with error handling
+-   **Testing**: Comprehensive unit testing with codecov.io for coverage reporting
+-   **CORS Support**: Configurable CORS for multiple frontend origins
+-   **Health Checks**: API health monitoring endpoint
+-   **Error Handling**: Consistent error response format
+
 ## Project Structure
+
+<details>
+
+<summary>Click to view Project Structure</summary>
 
 ```
 gov_challenge_backend/
@@ -88,7 +83,9 @@ gov_challenge_backend/
 └── Procfile                     # Heroku deployment config
 ```
 
-## Getting Started
+</details>
+
+## Getting Set Up Locally
 
 ### Prerequisites
 
@@ -97,7 +94,7 @@ Ensure you have the following installed:
 -   Node.js 22.17.0 or later
 -   npm 10.9.2 or later
 -   A Firebase project with Admin SDK credentials
--   The frontend application running locally or deployed
+-   The frontend application running locally
 
 ### Installation
 
@@ -216,3 +213,12 @@ Tasks are stored in memory (for demonstration) with:
 -   Status tracking (NOT_STARTED, IN_PROGRESS, COMPLETE)
 -   Timestamp tracking (createdAt, updatedAt)
 -   Unique ID generation per task
+
+## What I would add beyond the MVP
+
+With additional time, I would:
+
+-   Add more granular error handling with custom exception filters
+-   Implement request logging and monitoring for production observability
+-   Expand test coverage to reach 100% (unit, integration, and e2e tests)
+-   Implement rate limiting and security headers
