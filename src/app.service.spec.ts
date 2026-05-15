@@ -13,9 +13,9 @@ describe('AppService', () => {
   });
 
   describe('getHello', () => {
-    it('should return "Hello World!"', () => {
+    it('should return "Up and Running! 💪"', () => {
       const result = appService.getHello();
-      expect(result).toBe('Hello World!');
+      expect(result).toBe('Up and Running! 💪');
     });
 
     it('should return a string', () => {
