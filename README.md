@@ -216,7 +216,7 @@ Tasks are stored in memory (for demonstration) with:
 
 ## What I would add beyond the MVP
 
-With additional time, I would:
+This project is an MVP of the features requested by the brief. If I were to continue working on this project in the future, I would add the following:
 
 -   Add more granular error handling with custom exception filters
 -   Implement request logging and monitoring for production observability
